@@ -1,0 +1,12 @@
+namespace TesteAuvo.Domain.Entities;
+
+public class EmployeeTimeRecord
+{
+    public Employee Employee { get; set; }
+    public double HourlyRate { get; set; }
+    public DateOnly Date { get; set; }
+    public TimeOnly EntryTime { get; set; }
+    public TimeOnly ExitTime { get; set; }
+    public TimeOnly LunchPeriodStart { get; set; }
+    public TimeOnly LunchPeriodEnd { get; set; }
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "T3vLKCAI4T2oTjU+lSPJ2rykkjZRJJFU+aIUeK0265JONzFz1ga5zTOcly0MrQjF3NXxP5rGE0rgvWtih4IlqA==",
+  "success": true,
+  "projectFilePath": "/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.IoC/TesteAuvo.Infra.IoC.csproj",
+  "expectedPackageFiles": [
+    "/home/chico/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512",
+    "/home/chico/.nuget/packages/microsoft.extensions.configuration/7.0.0/microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "/home/chico/.nuget/packages/microsoft.extensions.configuration.abstractions/7.0.0/microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "/home/chico/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "/home/chico/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "/home/chico/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "TesteAuvo.Application/1.0.0": {
+        "runtime": {
+          "TesteAuvo.Application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TesteAuvo.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

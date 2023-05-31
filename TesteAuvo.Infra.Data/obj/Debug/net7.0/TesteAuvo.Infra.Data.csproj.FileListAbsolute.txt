@@ -1,0 +1,17 @@
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Infra.Data.deps.json
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Infra.Data.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Infra.Data.pdb
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Domain.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Domain.pdb
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.csproj.AssemblyReference.cache
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.AssemblyInfoInputs.cache
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.AssemblyInfo.cs
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.csproj.CoreCompileInputs.cache
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.csproj.CopyComplete
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/refint/TesteAuvo.Infra.Data.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/TesteAuvo.Infra.Data.pdb
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/obj/Debug/net7.0/ref/TesteAuvo.Infra.Data.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Application.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.Data/bin/Debug/net7.0/TesteAuvo.Application.pdb

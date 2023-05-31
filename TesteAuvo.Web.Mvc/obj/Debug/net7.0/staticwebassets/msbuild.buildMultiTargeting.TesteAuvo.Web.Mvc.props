@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/TesteAuvo.Web.Mvc.props" />
+</Project>
