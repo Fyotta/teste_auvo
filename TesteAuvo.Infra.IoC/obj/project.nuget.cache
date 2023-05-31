@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T3vLKCAI4T2oTjU+lSPJ2rykkjZRJJFU+aIUeK0265JONzFz1ga5zTOcly0MrQjF3NXxP5rGE0rgvWtih4IlqA==",
+  "dgSpecHash": "7ubEWV+D7DDWxyijmPbhWr5FzkbrbsE7QYAavtA21L6Xn7MPiOGeWnFFxqcIirkZAedy1/4Xcaeg2V1pTGEcWQ==",
   "success": true,
   "projectFilePath": "/home/chico/src/repos/teste_auvo/TesteAuvo.Infra.IoC/TesteAuvo.Infra.IoC.csproj",
   "expectedPackageFiles": [

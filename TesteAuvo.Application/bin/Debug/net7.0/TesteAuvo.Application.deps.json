@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "TesteAuvo.Application/1.0.0": {
+        "dependencies": {
+          "TesteAuvo.Domain": "1.0.0"
+        },
         "runtime": {
           "TesteAuvo.Application.dll": {}
+        }
+      },
+      "TesteAuvo.Domain/1.0.0": {
+        "runtime": {
+          "TesteAuvo.Domain.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TesteAuvo.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TesteAuvo.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

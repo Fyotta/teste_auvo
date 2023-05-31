@@ -25,7 +25,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/chico/src/repos/teste_auvo/TesteAuvo.Domain/TesteAuvo.Domain.csproj": {
+                "projectPath": "/home/chico/src/repos/teste_auvo/TesteAuvo.Domain/TesteAuvo.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

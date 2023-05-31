@@ -75,6 +75,9 @@
         }
       },
       "TesteAuvo.Application/1.0.0": {
+        "dependencies": {
+          "TesteAuvo.Domain": "1.0.0"
+        },
         "runtime": {
           "TesteAuvo.Application.dll": {}
         }

@@ -10,3 +10,6 @@
 /home/chico/src/repos/teste_auvo/TesteAuvo.Application/obj/Debug/net7.0/refint/TesteAuvo.Application.dll
 /home/chico/src/repos/teste_auvo/TesteAuvo.Application/obj/Debug/net7.0/TesteAuvo.Application.pdb
 /home/chico/src/repos/teste_auvo/TesteAuvo.Application/obj/Debug/net7.0/ref/TesteAuvo.Application.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Application/bin/Debug/net7.0/TesteAuvo.Domain.dll
+/home/chico/src/repos/teste_auvo/TesteAuvo.Application/bin/Debug/net7.0/TesteAuvo.Domain.pdb
+/home/chico/src/repos/teste_auvo/TesteAuvo.Application/obj/Debug/net7.0/TesteAuvo.Application.csproj.CopyComplete

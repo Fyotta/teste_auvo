@@ -41,6 +41,9 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {},
       "Microsoft.Extensions.Primitives/7.0.0": {},
       "TesteAuvo.Application/1.0.0": {
+        "dependencies": {
+          "TesteAuvo.Domain": "1.0.0"
+        },
         "runtime": {
           "TesteAuvo.Application.dll": {}
         }
