@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/TesteAuvo.Web.Mvc.props" />
-</Project>
