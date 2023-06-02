@@ -1,6 +1,7 @@
 using System.Globalization;
 using CsvHelper.Configuration;
 using TesteAuvo.Application.Dtos;
+using TesteAuvo.Domain.Entities;
 
 namespace TesteAuvo.Application.Mapping;
 
@@ -8,8 +9,14 @@ public class TimeRecordCSVInputMap : ClassMap<TimeRecordCSVInputDTO>
 {
     public TimeRecordCSVInputMap()
     {
-        Map(m => m.Employee.Id).Name("Código");
-        Map(m => m.Employee.Name).Name("Nome");
+        // Map(m => m.Employee.ExternalId).Name("Código");
+        // Map(m => m.Employee.Name).Name("Nome");
+        Map(m => m.Employee).Convert(row =>
+        {
+            int externalId = row.Row.GetField<int>("Código");
+            string name = row.Row.GetField<string>("Nome");
+            return new Employee(Guid.NewGuid(), externalId, name);
+        });
         Map(m => m.HourlyRate).Name("Valor hora").Convert(row =>
         {
             string hourlyRate = row.Row.GetField<string>("Valor hora");

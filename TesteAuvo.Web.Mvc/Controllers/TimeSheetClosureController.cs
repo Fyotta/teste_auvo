@@ -20,7 +20,7 @@ public class TimeSheetClosureController : Controller
 
     public IActionResult AnalyzeData(string pathToDiretory)
     {
-        var result = _timeSheetClosureService.AnalyzeDirectoryDataAsync(pathToDiretory);
-        return View(result);
+        _timeSheetClosureService.GetTimeSheetClousure(pathToDiretory);
+        return View();
     }
 }

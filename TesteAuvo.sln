@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteAuvo.Infra.IoC", "Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteAuvo.Web.Mvc", "TesteAuvo.Web.Mvc\TesteAuvo.Web.Mvc.csproj", "{81D7F638-EA60-41CE-9515-5E393024E928}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteAuvo.Infra.Storage", "TesteAuvo.Infra.Storage\TesteAuvo.Infra.Storage.csproj", "{F39AD1E7-3E35-4E02-BACB-275C0CAC28FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{81D7F638-EA60-41CE-9515-5E393024E928}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81D7F638-EA60-41CE-9515-5E393024E928}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81D7F638-EA60-41CE-9515-5E393024E928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39AD1E7-3E35-4E02-BACB-275C0CAC28FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39AD1E7-3E35-4E02-BACB-275C0CAC28FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39AD1E7-3E35-4E02-BACB-275C0CAC28FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39AD1E7-3E35-4E02-BACB-275C0CAC28FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

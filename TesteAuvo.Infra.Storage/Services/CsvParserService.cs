@@ -5,13 +5,13 @@ using Microsoft.Extensions.Configuration;
 using TesteAuvo.Application.Interfaces;
 using TesteAuvo.Application.Interfaces.Services;
 
-namespace TesteAuvo.Infra.Data;
+namespace TesteAuvo.Infra.Storage.Services;
 
-public class CsvParser<TMap, TEntity> : ICsvParserService<TMap, TEntity> where TMap : ClassMap<TEntity> where TEntity : ICsvData
+public class CsvParserService<TMap, TEntity> : ICsvParserService<TMap, TEntity> where TMap : ClassMap<TEntity> where TEntity : ICsvData
 {
     private readonly IConfiguration _configuration;
 
-    public CsvParser(IConfiguration configuration)
+    public CsvParserService(IConfiguration configuration)
     {
         _configuration = configuration;
     }

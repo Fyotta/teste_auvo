@@ -13,19 +13,18 @@ public class TimeSheetClosureService : ITimeSheetClosureService
     {
         _csvParserService = csvParserService;
     }
-    public List<TimeRecordCSVInputDTO> AnalyzeDirectoryDataAsync(string pathToDiretory)
+    public List<TimeSheetClosureViewModel> GetTimeSheetClousure(string pathToDiretory)
     {
-        var myData = _csvParserService.getDataFromDirectoryAsync(pathToDiretory);
-        return myData;
-    }
+        var timeRecords = _csvParserService.getDataFromDirectoryAsync(pathToDiretory).GroupBy(c => c.Employee.Id).ToList();
 
-    public bool GetAnalysisStatus(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+        foreach (var employeeEntry in timeRecords)
+        {
+            foreach (var record in employeeEntry)
+            {
+                System.Console.WriteLine(record.FileName);
+            }
+        }
 
-    public List<TimeSheetClosureViewModel> GetTimeSheetClousure()
-    {
-        throw new NotImplementedException();
+        return new List<TimeSheetClosureViewModel>();
     }
 }

@@ -3,6 +3,7 @@ using TesteAuvo.Infra.IoC;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddEntityFramework(builder.Configuration);
 builder.Services.AddInfrastructure();
 builder.Services.AddApplicationServices();
 builder.Services.AddControllersWithViews();
