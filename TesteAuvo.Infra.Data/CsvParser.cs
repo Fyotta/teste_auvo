@@ -1,11 +1,13 @@
 using System.Globalization;
 using CsvHelper;
+using CsvHelper.Configuration;
 using Microsoft.Extensions.Configuration;
+using TesteAuvo.Application.Interfaces;
 using TesteAuvo.Application.Interfaces.Services;
 
 namespace TesteAuvo.Infra.Data;
 
-public class CsvParser<T> : ICsvParserService<T>
+public class CsvParser<TMap, TEntity> : ICsvParserService<TMap, TEntity> where TMap : ClassMap<TEntity> where TEntity : ICsvData
 {
     private readonly IConfiguration _configuration;
 
@@ -14,41 +16,44 @@ public class CsvParser<T> : ICsvParserService<T>
         _configuration = configuration;
     }
 
-    public async Task<List<T>> getDataFromDirectoryAsync(string pathToDiretory){
+    public List<TEntity> getDataFromDirectoryAsync(string pathToDiretory){
         if (!Directory.Exists(pathToDiretory))
             throw new DirectoryNotFoundException("O diretório informado é inválido! Por favor, verifique e tente novamente.");
             
-        return await getDataFromFiles(pathToDiretory);
+        return getDataFromFiles(pathToDiretory);
     }
-    private Task<List<T>> getDataFromFiles(string pathToDiretory)
+    private List<TEntity> getDataFromFiles(string pathToDiretory)
     {
         // TODO: VALIDAR DIRETÓRIO VAZIO
         string[] csvFiles = Directory.GetFiles(pathToDiretory, "*.csv");
 
-        List<T> combinedData = new List<T>();
+        List<TEntity> combinedData = new List<TEntity>();
 
-        var tasks = csvFiles.Select((csvFile) =>
+        foreach (var csvFile in csvFiles)
         {
-            return Task.Factory.StartNew(() =>
-            {
-                IEnumerable<T> csvData = getDataFromFile(csvFile);
-                combinedData.AddRange(csvData);
-            });
-        });
-        
-        return Task.WhenAll(tasks).ContinueWith((task) => {
-            return combinedData;
-        });
+            IEnumerable<TEntity> csvData = getDataFromFile(csvFile);
+            combinedData.AddRange(csvData);
+        }
+        return combinedData;
     }
-    private IEnumerable<T> getDataFromFile(string pathToFile)
+    private IEnumerable<TEntity> getDataFromFile(string pathToFile)
     {
         var config = new CsvHelper.Configuration.CsvConfiguration(CultureInfo.GetCultureInfo(_configuration["CsvConfiguration:CultureInfo"]))
         {
             Delimiter = _configuration["CsvConfiguration:Delimiter"],
             HasHeaderRecord = bool.Parse(_configuration["CsvConfiguration:HasHeaderRecord"])
         };
+
         using (var reader = new StreamReader(pathToFile))
         using (var csv = new CsvReader(reader, config))
-            return csv.GetRecords<T>();
+        {
+            csv.Context.RegisterClassMap<TMap>();
+            var csvData = csv.GetRecords<TEntity>().ToList();
+            foreach (var record in csvData)
+            {
+                record.FileName = pathToFile;
+            }
+            return csvData;
+        }
     }
 }

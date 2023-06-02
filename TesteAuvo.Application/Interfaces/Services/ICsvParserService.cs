@@ -1,7 +1,7 @@
 namespace TesteAuvo.Application.Interfaces.Services;
 
 
-public interface ICsvParserService<T>
+public interface ICsvParserService<TMap, TEntity>
 {
-    public Task<List<T>> getDataFromDirectoryAsync(string pathToDiretory);
+    public List<TEntity> getDataFromDirectoryAsync(string pathToDiretory);
 }

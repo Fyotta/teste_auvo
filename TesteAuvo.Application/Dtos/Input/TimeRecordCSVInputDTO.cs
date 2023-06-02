@@ -1,27 +1,16 @@
-using System.ComponentModel.DataAnnotations;
+using TesteAuvo.Application.Interfaces;
+using TesteAuvo.Domain.Entities;
 
 namespace TesteAuvo.Application.Dtos;
 
-public class TimeRecordCSVInputDTO
+public class TimeRecordCSVInputDTO : ICsvData
 {
-    [Display(Name = "Código")]
-    public int Id { get; set; }
-
-    [Display(Name = "Nome")]
-    public string Name { get; set; }
-
-    [Display(Name = "Valor hora")]
+    public Employee Employee { get; set; }
     public double HourlyRate { get; set; }
-
-    [Display(Name = "Data")]
     public DateOnly Date { get; set; }
-
-    [Display(Name = "Entrada")]
     public TimeOnly EntryTime { get; set; }
-
-    [Display(Name = "Saída")]
     public TimeOnly ExitTime { get; set; }
-    
-    [Display(Name = "Almoço")]
-    public TimeOnly LunchPeriod { get; set; }
+    public TimeOnly LunchPeriodStart { get; set; }
+    public TimeOnly LunchPeriodEnd { get; set; }
+    public string FileName { get; set; }
 }

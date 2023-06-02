@@ -1,0 +1,12 @@
+@using TesteAuvo.Application.Dtos;
+@model List<TimeRecordCSVInputDTO>;
+
+@{
+    ViewData["Title"] = "Análise de CSV";
+}
+
+
+@foreach (var item in Model)
+{
+    <p>@item.Employee @item.Date</p>
+}

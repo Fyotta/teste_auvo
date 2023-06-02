@@ -1,5 +1,6 @@
 using TesteAuvo.Application.Dtos;
 using TesteAuvo.Application.Interfaces.Services;
+using TesteAuvo.Application.Mapping;
 using TesteAuvo.Application.ViewModels;
 
 namespace TesteAuvo.Application.Services;
@@ -7,14 +8,15 @@ namespace TesteAuvo.Application.Services;
 public class TimeSheetClosureService : ITimeSheetClosureService
 {
 
-    private readonly ICsvParserService<TimeRecordCSVInputDTO> _csvParserService;
-    public TimeSheetClosureService(ICsvParserService<TimeRecordCSVInputDTO> csvParserService)
+    private readonly ICsvParserService<TimeRecordCSVInputMap, TimeRecordCSVInputDTO> _csvParserService;
+    public TimeSheetClosureService(ICsvParserService<TimeRecordCSVInputMap, TimeRecordCSVInputDTO> csvParserService)
     {
         _csvParserService = csvParserService;
     }
-    public Guid AnalyzeDirectoryData(string pathToDiretory)
+    public List<TimeRecordCSVInputDTO> AnalyzeDirectoryDataAsync(string pathToDiretory)
     {
-        throw new NotImplementedException();
+        var myData = _csvParserService.getDataFromDirectoryAsync(pathToDiretory);
+        return myData;
     }
 
     public bool GetAnalysisStatus(Guid id)

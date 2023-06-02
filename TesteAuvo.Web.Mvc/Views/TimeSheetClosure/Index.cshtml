@@ -1,0 +1,18 @@
+
+@{
+    ViewData["Title"] = "Análise de CSV";
+}
+
+<div class="d-flex justify-content-center">
+        <form asp-controller="TimeSheetClosure" asp-action="AnalyzeData" method="GET">
+            <div class="d-grid gap-2">
+                <div class="mb-3">
+                    <label for="diretoryPath" class="form-label">Pasta:</label>
+                    <input type="text" class="form-control" id="diretoryPath" name="pathToDiretory">
+                    <div class="form-text">Informe o caminho do diretório onde se encontram os arquivos .CSV</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Processar Arquivos</button>
+            </div>
+        </form>
+    </div>
+</div>
