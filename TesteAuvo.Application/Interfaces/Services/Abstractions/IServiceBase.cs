@@ -1,9 +1,9 @@
 using TesteAuvo.Domain.Abstractions;
 
-namespace TesteAuvo.Domain.Interfaces.Abstractions;
+namespace TesteAuvo.Application.Interfaces.Services.Abstractions;
 
 
-public interface IRepositoryBase<TEntity> where TEntity : Entity
+public interface IServiceBase<TEntity> where TEntity : Entity
 {
     Task<IEnumerable<TEntity>> GetAsync();
     Task<TEntity?> FindByIdAsync(Guid id);

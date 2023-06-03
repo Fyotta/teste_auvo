@@ -1,23 +1,18 @@
-using System.Globalization;
+using TesteAuvo.Domain.Abstractions;
 
 namespace TesteAuvo.Domain.Entities;
 
-public class BookEmployeeTimeRecord
+public class BookEmployeeTimeRecord : Entity
 {
-    public string DepartmentName { get; private set; }
+    public Guid DepartmentId { get; private set; }
+    public virtual Department Department { get; private set; }
     public int EffectiveMonth { get; private set; }
     public int EffectiveYear { get; private set; }
+    public virtual ICollection<EmployeeTimeRecord>? EmployeeTimeRecords { get; set; }
 
-    public BookEmployeeTimeRecord(string fileName)
+    public BookEmployeeTimeRecord(Guid id, Guid departmentId, int effectiveMonth, int effectiveYear) : base(id)
     {
-        string[] parts = fileName.Split('-');
-        DepartmentName = parts[0];
-        EffectiveMonth = DateTime.ParseExact(parts[1], "MMMM", new CultureInfo("pt-BR")).Month;
-        EffectiveYear = int.Parse(parts[2]);
-    }
-    public BookEmployeeTimeRecord(string departmentName, int effectiveMonth, int effectiveYear)
-    {
-        DepartmentName = departmentName;
+        DepartmentId = departmentId;
         EffectiveMonth = effectiveMonth;
         EffectiveYear = effectiveYear;
     }

@@ -6,7 +6,7 @@ public class Employee : Entity
 {
     public int ExternalId { get; private set; }
     public string Name { get; private set; }
-    public virtual ICollection<EmployeeTimeRecord> EmployeeTimeRecords { get; set; }
+    public virtual ICollection<EmployeeTimeRecord>? EmployeeTimeRecords { get; private set; }
 
     public Employee(Guid id, int externalId, string name) : base(id)
     {

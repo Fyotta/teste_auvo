@@ -4,8 +4,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddEntityFramework(builder.Configuration);
+builder.Services.AddRepositories();
 builder.Services.AddInfrastructure();
 builder.Services.AddApplicationServices();
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

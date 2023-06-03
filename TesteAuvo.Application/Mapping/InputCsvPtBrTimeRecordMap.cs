@@ -2,15 +2,14 @@ using System.Globalization;
 using CsvHelper.Configuration;
 using TesteAuvo.Application.Dtos;
 using TesteAuvo.Domain.Entities;
+using Microsoft.Extensions.Configuration;
 
 namespace TesteAuvo.Application.Mapping;
 
-public class TimeRecordCSVInputMap : ClassMap<TimeRecordCSVInputDTO>
+public class InputCsvPtBrTimeRecordMap : ClassMap<InputCsvTimeRecordDTO>
 {
-    public TimeRecordCSVInputMap()
+    public InputCsvPtBrTimeRecordMap()
     {
-        // Map(m => m.Employee.ExternalId).Name("Código");
-        // Map(m => m.Employee.Name).Name("Nome");
         Map(m => m.Employee).Convert(row =>
         {
             int externalId = row.Row.GetField<int>("Código");

@@ -3,7 +3,7 @@ using TesteAuvo.Domain.Entities;
 
 namespace TesteAuvo.Application.Dtos;
 
-public class TimeRecordCSVInputDTO : ICsvData
+public class InputCsvTimeRecordDTO : ICsvData
 {
     public Employee Employee { get; set; }
     public double HourlyRate { get; set; }

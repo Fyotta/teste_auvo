@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TesteAuvo.Infra.Data;
 
@@ -10,9 +11,11 @@ using TesteAuvo.Infra.Data;
 namespace TesteAuvo.Infra.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230602214424_FixEmployeeTimeRecord")]
+    partial class FixEmployeeTimeRecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,7 +121,7 @@ namespace TesteAuvo.Infra.Data.Migrations
             modelBuilder.Entity("TesteAuvo.Domain.Entities.BookEmployeeTimeRecord", b =>
                 {
                     b.HasOne("TesteAuvo.Domain.Entities.Department", "Department")
-                        .WithMany("BookEmployeeTimeRecords")
+                        .WithMany("BookEmployeeTimeRecord")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -152,7 +155,7 @@ namespace TesteAuvo.Infra.Data.Migrations
 
             modelBuilder.Entity("TesteAuvo.Domain.Entities.Department", b =>
                 {
-                    b.Navigation("BookEmployeeTimeRecords");
+                    b.Navigation("BookEmployeeTimeRecord");
                 });
 
             modelBuilder.Entity("TesteAuvo.Domain.Entities.Employee", b =>
