@@ -1,8 +1,8 @@
 using System.Globalization;
 using CsvHelper.Configuration;
 using TesteAuvo.Application.Dtos;
+using TesteAuvo.Application.Interfaces;
 using TesteAuvo.Domain.Entities;
-using Microsoft.Extensions.Configuration;
 
 namespace TesteAuvo.Application.Mapping;
 
@@ -20,7 +20,6 @@ public class InputCsvPtBrTimeRecordMap : ClassMap<InputCsvTimeRecordDTO>
         {
             string hourlyRate = row.Row.GetField<string>("Valor hora");
             return double.Parse(hourlyRate.Replace("R$", "").Trim(), CultureInfo.GetCultureInfo("pt-BR"));
-
         });
         Map(m => m.Date).Name("Data").TypeConverterOption.Format("dd/MM/yyyy");
         Map(m => m.EntryTime).Name("Entrada").TypeConverterOption.Format("HH:mm:ss");

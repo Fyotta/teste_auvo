@@ -7,10 +7,12 @@ public class TimeSheetClosureController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly ITimeSheetClosureService _timeSheetClosureService;
-    public TimeSheetClosureController(ILogger<HomeController> logger, ITimeSheetClosureService timeSheetClosureService)
+    private readonly IImportCsvDataService _importCsvDataService;
+    public TimeSheetClosureController(ILogger<HomeController> logger, ITimeSheetClosureService timeSheetClosureService, IImportCsvDataService importCsvDataService)
     {
         _logger = logger;
         _timeSheetClosureService = timeSheetClosureService;
+        _importCsvDataService = importCsvDataService;
     }
 
     public IActionResult Index()
@@ -18,9 +20,10 @@ public class TimeSheetClosureController : Controller
         return View();
     }
 
-    public IActionResult AnalyzeData(string pathToDiretory)
+    public async Task<IActionResult> AnalyzeData(string pathToDiretory)
     {
-        _timeSheetClosureService.GetTimeSheetClousure(pathToDiretory);
+        //_timeSheetClosureService.GetTimeSheetClousure(pathToDiretory);
+        await _importCsvDataService.ImportCsvDataFromDiretoryAsync(pathToDiretory);
         return View();
     }
 }

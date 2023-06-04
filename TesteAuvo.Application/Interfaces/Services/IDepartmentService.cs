@@ -5,4 +5,5 @@ namespace TesteAuvo.Application.Interfaces.Services;
 
 public interface IDepartmentService : IServiceBase<Department>
 {
+    public Task<Department?> FindByNameAsync(string departmentName);
 }

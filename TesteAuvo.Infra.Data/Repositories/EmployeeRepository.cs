@@ -8,6 +8,5 @@ public class EmployeeRepository : RepositoryBase<Employee>, IEmployeeRepository
 {
     public EmployeeRepository(AppDbContext context) : base(context)
     {
-
     }
 }

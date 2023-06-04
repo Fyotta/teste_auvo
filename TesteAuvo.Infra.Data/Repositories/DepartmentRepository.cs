@@ -8,6 +8,5 @@ public class DepartmentRepository : RepositoryBase<Department>, IDepartmentRepos
 {
     public DepartmentRepository(AppDbContext context) : base(context)
     {
-
     }
 }
