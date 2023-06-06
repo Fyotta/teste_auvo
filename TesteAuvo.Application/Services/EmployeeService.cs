@@ -1,14 +1,14 @@
 using TesteAuvo.Application.Interfaces.Services;
 using TesteAuvo.Application.Services.Abstractions;
 using TesteAuvo.Domain.Entities;
-using TesteAuvo.Domain.Interfaces.Abstractions;
+using TesteAuvo.Domain.Interfaces;
 
 namespace TesteAuvo.Application.Services;
 
 public class EmployeeService : ServiceBase<Employee>, IEmployeeService
 {
-    private readonly IRepositoryBase<Employee> _repository;
-    public EmployeeService(IRepositoryBase<Employee> repository) : base(repository)
+    private readonly IEmployeeRepository _repository;
+    public EmployeeService(IEmployeeRepository repository) : base(repository)
     {
         _repository = repository;
     }

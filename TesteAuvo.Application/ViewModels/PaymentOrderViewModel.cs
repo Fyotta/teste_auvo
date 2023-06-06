@@ -1,30 +1,30 @@
-using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace TesteAuvo.Application.ViewModels;
 
 public class PaymentOrderViewModel
 {
-    [Display(Name = "Nome")]
+    [JsonPropertyName("Nome")]
     public string  EmployeeName { get; set; }
 
-    [Display(Name = "Codigo")]
-    public string EmployeeId { get; set; }
+    [JsonPropertyName("Codigo")]
+    public int EmployeeId { get; set; }
 
-    [Display(Name = "TotalReceber")]
+    [JsonPropertyName("TotalReceber")]
     public double TotalEarnings { get; set; }
 
-    [Display(Name = "HorasExtras")]
+    [JsonPropertyName("HorasExtras")]
     public double OvertimeHours { get; set; }
 
-    [Display(Name = "HorasDebito")]
+    [JsonPropertyName("HorasDebito")]
     public double DebitHours { get; set; }
 
-    [Display(Name = "DiasFalta")]
+    [JsonPropertyName("DiasFalta")]
     public int AbsentDays { get; set; }
 
-    [Display(Name = "DiasExtras")]
+    [JsonPropertyName("DiasExtras")]
     public int ExtraDays { get; set; }
 
-    [Display(Name = "DiasTrabalhados")]
+    [JsonPropertyName("DiasTrabalhados")]
     public int WorkedDays { get; set; }
 }

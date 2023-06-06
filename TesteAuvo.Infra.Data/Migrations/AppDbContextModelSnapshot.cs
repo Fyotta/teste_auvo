@@ -40,7 +40,7 @@ namespace TesteAuvo.Infra.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("BookEmployeeTimeRecord");
+                    b.ToTable("BookEmployeeTimeRecords");
                 });
 
             modelBuilder.Entity("TesteAuvo.Domain.Entities.Department", b =>
@@ -115,6 +115,77 @@ namespace TesteAuvo.Infra.Data.Migrations
                     b.ToTable("EmployeeTimeRecords");
                 });
 
+            modelBuilder.Entity("TesteAuvo.Domain.Entities.PaymentOrder", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("AbsentDays")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("DebitHours")
+                        .HasColumnType("REAL");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ExtraDays")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("MissingHoursDeduction")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OvertimeHours")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("OvertimePayment")
+                        .HasColumnType("REAL");
+
+                    b.Property<Guid>("TimeSheetClosureId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("TotalEarnings")
+                        .HasColumnType("REAL");
+
+                    b.Property<int>("WorkedDays")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("TimeSheetClosureId");
+
+                    b.ToTable("PaymentOrders");
+                });
+
+            modelBuilder.Entity("TesteAuvo.Domain.Entities.TimeSheetClosure", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("BookEmployeeTimeRecordId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("TotalDeductions")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("TotalOvertime")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("TotalPayment")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookEmployeeTimeRecordId")
+                        .IsUnique();
+
+                    b.ToTable("TimeSheetClosures");
+                });
+
             modelBuilder.Entity("TesteAuvo.Domain.Entities.BookEmployeeTimeRecord", b =>
                 {
                     b.HasOne("TesteAuvo.Domain.Entities.Department", "Department")
@@ -145,9 +216,41 @@ namespace TesteAuvo.Infra.Data.Migrations
                     b.Navigation("Employee");
                 });
 
+            modelBuilder.Entity("TesteAuvo.Domain.Entities.PaymentOrder", b =>
+                {
+                    b.HasOne("TesteAuvo.Domain.Entities.Employee", "Employee")
+                        .WithMany("PaymentOrders")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TesteAuvo.Domain.Entities.TimeSheetClosure", "TimeSheetClosure")
+                        .WithMany("PaymentOrders")
+                        .HasForeignKey("TimeSheetClosureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("TimeSheetClosure");
+                });
+
+            modelBuilder.Entity("TesteAuvo.Domain.Entities.TimeSheetClosure", b =>
+                {
+                    b.HasOne("TesteAuvo.Domain.Entities.BookEmployeeTimeRecord", "BookEmployeeTimeRecord")
+                        .WithOne("TimeSheetClosure")
+                        .HasForeignKey("TesteAuvo.Domain.Entities.TimeSheetClosure", "BookEmployeeTimeRecordId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BookEmployeeTimeRecord");
+                });
+
             modelBuilder.Entity("TesteAuvo.Domain.Entities.BookEmployeeTimeRecord", b =>
                 {
                     b.Navigation("EmployeeTimeRecords");
+
+                    b.Navigation("TimeSheetClosure");
                 });
 
             modelBuilder.Entity("TesteAuvo.Domain.Entities.Department", b =>
@@ -158,6 +261,13 @@ namespace TesteAuvo.Infra.Data.Migrations
             modelBuilder.Entity("TesteAuvo.Domain.Entities.Employee", b =>
                 {
                     b.Navigation("EmployeeTimeRecords");
+
+                    b.Navigation("PaymentOrders");
+                });
+
+            modelBuilder.Entity("TesteAuvo.Domain.Entities.TimeSheetClosure", b =>
+                {
+                    b.Navigation("PaymentOrders");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,10 @@
+using TesteAuvo.Application.Interfaces.Services.Abstractions;
 using TesteAuvo.Domain.Abstractions;
 using TesteAuvo.Domain.Interfaces.Abstractions;
 
 namespace TesteAuvo.Application.Services.Abstractions;
 
-public abstract class ServiceBase<TEntity> : IRepositoryBase<TEntity> where TEntity : Entity
+public abstract class ServiceBase<TEntity> : IServiceBase<TEntity> where TEntity : Entity
 {
     private readonly IRepositoryBase<TEntity> _repository;
 
@@ -16,9 +17,19 @@ public abstract class ServiceBase<TEntity> : IRepositoryBase<TEntity> where TEnt
         await _repository.AddAsync(entity);
     }
 
+    public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities)
+    {
+        await _repository.AddRangeAsync(entities);
+    }
+
     public virtual async Task DeleteAsync(TEntity entity)
     {
         await _repository.DeleteAsync(entity);
+    }
+
+    public async Task DeleteRangeAsync(IEnumerable<TEntity> entities)
+    {
+        await _repository.DeleteRangeAsync(entities);
     }
 
     public virtual async Task<TEntity?> FindByIdAsync(Guid id)

@@ -1,4 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
 using TesteAuvo.Application.Interfaces.Services;
 
 namespace TesteAuvo.Web.Mvc.Controllers;
@@ -22,8 +26,15 @@ public class TimeSheetClosureController : Controller
 
     public async Task<IActionResult> AnalyzeData(string pathToDiretory)
     {
-        //_timeSheetClosureService.GetTimeSheetClousure(pathToDiretory);
         await _importCsvDataService.ImportCsvDataFromDiretoryAsync(pathToDiretory);
+        var result = await _timeSheetClosureService.GetTimeSheetClosureJson();
+        var jsonOpts = new JsonSerializerOptions
+        {
+            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+            WriteIndented = true
+        };
+        var json = JsonSerializer.Serialize(result, jsonOpts);
+        ViewBag.jsonContent = json;
         return View();
     }
 }

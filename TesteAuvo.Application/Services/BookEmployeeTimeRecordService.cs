@@ -1,14 +1,14 @@
 using TesteAuvo.Application.Interfaces.Services;
 using TesteAuvo.Application.Services.Abstractions;
 using TesteAuvo.Domain.Entities;
-using TesteAuvo.Domain.Interfaces.Abstractions;
+using TesteAuvo.Domain.Interfaces;
 
 namespace TesteAuvo.Application.Services;
 
 public class BookEmployeeTimeRecordService : ServiceBase<BookEmployeeTimeRecord>, IBookEmployeeTimeRecordService
 {
-    private readonly IRepositoryBase<BookEmployeeTimeRecord> _repository;
-    public BookEmployeeTimeRecordService(IRepositoryBase<BookEmployeeTimeRecord> repository) : base(repository)
+    private readonly IBookEmployeeTimeRecordRepository _repository;
+    public BookEmployeeTimeRecordService(IBookEmployeeTimeRecordRepository repository) : base(repository)
     {
         _repository = repository;
     }

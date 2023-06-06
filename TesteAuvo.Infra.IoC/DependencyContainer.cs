@@ -31,11 +31,8 @@ public static class DependencyContainer
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IBookEmployeeTimeRecordRepository, BookEmployeeTimeRecordRepository>();
             services.AddScoped<IEmployeeTimeRecordRepository, EmployeeTimeRecordRepository>();
-
-            services.AddScoped<IRepositoryBase<Employee>, EmployeeRepository>();
-            services.AddScoped<IRepositoryBase<Department>, DepartmentRepository>();
-            services.AddScoped<IRepositoryBase<BookEmployeeTimeRecord>, BookEmployeeTimeRecordRepository>();
-            services.AddScoped<IRepositoryBase<EmployeeTimeRecord>, EmployeeTimeRecordRepository>();
+            services.AddScoped<ITimeSheetClosureRepository, TimeSheetClosureRepository>();
+            services.AddScoped<IPaymentOrderRepository, PaymentOrderRepository>();
             return services;
         }
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
@@ -46,6 +43,8 @@ public static class DependencyContainer
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IEmployeeTimeRecordService, EmployeeTimeRecordService>();
             services.AddScoped<IImportCsvDataService, ImportCsvDataService>();
+            services.AddScoped<ITimeSheetClosureService, TimeSheetClosureService>();
+            services.AddScoped<IPaymentOrderService, PaymentOrderService>();
             return services;
         }
 }

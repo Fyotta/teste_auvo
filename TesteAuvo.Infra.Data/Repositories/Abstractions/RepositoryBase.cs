@@ -8,7 +8,7 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
 {
     private readonly AppDbContext _context;
     private readonly DbSet<TEntity> _dbSet;
-    public RepositoryBase(AppDbContext context)
+    protected RepositoryBase(AppDbContext context)
     {
         _context = context;
         _dbSet = context.Set<TEntity>();
@@ -19,10 +19,22 @@ public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where T
         await _context.SaveChangesAsync();
     }
 
+    public virtual async Task AddRangeAsync(IEnumerable<TEntity> entities)
+    {
+        await _dbSet.AddRangeAsync(entities);
+        await _context.SaveChangesAsync();
+    }
+
     public virtual async Task DeleteAsync(TEntity entity)
     {
         _dbSet.Remove(entity);
         await _context.SaveChangesAsync(); 
+    }
+
+    public virtual async Task DeleteRangeAsync(IEnumerable<TEntity> entities)
+    {
+        _dbSet.RemoveRange(entities);
+        await _context.SaveChangesAsync();
     }
 
     public virtual async Task<TEntity?> FindByIdAsync(Guid id)

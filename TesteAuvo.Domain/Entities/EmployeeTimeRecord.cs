@@ -29,4 +29,20 @@ public class EmployeeTimeRecord : Entity
         LunchPeriodEnd = lunchPeriodEnd;
         BookEmployeeTimeRecordId = bookEmployeeTimeRecordId;
     }
+    public EmployeeTimeRecord(Guid id, Employee employee, double hourlyRate,
+                                DateOnly date, TimeOnly entryTime, TimeOnly exitTime,
+                                TimeOnly lunchPeriodStart, TimeOnly lunchPeriodEnd,
+                                BookEmployeeTimeRecord bookEmployeeTimeRecord) : base(id)
+    {
+        Employee = employee;
+        EmployeeId = employee.Id;
+        HourlyRate = hourlyRate;
+        Date = date;
+        EntryTime = entryTime;
+        ExitTime = exitTime;
+        LunchPeriodStart = lunchPeriodStart;
+        LunchPeriodEnd = lunchPeriodEnd;
+        BookEmployeeTimeRecord = bookEmployeeTimeRecord;
+        BookEmployeeTimeRecordId = bookEmployeeTimeRecord.Id;
+    }
 }

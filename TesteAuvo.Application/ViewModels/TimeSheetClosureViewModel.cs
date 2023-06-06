@@ -1,27 +1,27 @@
-using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace TesteAuvo.Application.ViewModels;
 
 public class TimeSheetClosureViewModel
 {
-    [Display(Name = "Departamento")]
-    public string Department { get; set; }
+    [JsonPropertyName("Departamento")]
+    public string DepartmentName { get; set; }
 
-    [Display(Name = "MesVigencia")]
+    [JsonPropertyName("MesVigencia")]
     public string EffectiveMonth { get; set; }
 
-    [Display(Name = "AnoVigencia")]
+    [JsonPropertyName("AnoVigencia")]
     public int EffectiveYear { get; set; }
 
-    [Display(Name = "TotalPagar")]
+    [JsonPropertyName("TotalPagar")]
     public double TotalPayment { get; set; }
 
-    [Display(Name = "TotalDescontos")]
+    [JsonPropertyName("TotalDescontos")]
     public double TotalDeductions { get; set; }
 
-    [Display(Name = "TotalExtras")]
+    [JsonPropertyName("TotalExtras")]
     public double TotalOvertime { get; set; }
 
-    [Display(Name = "Funcionarios")]
+    [JsonPropertyName("Funcionarios")]
     public List<PaymentOrderViewModel> Employees { get; set; }
 }
