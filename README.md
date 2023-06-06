@@ -1,17 +1,32 @@
-# teste_auvo
+# TesteAuvo
 
-# Para Gerar o Banco de Dados Inicial:
+  
 
-# Entre no diretório do projeto TesteAuvo.Infra.Data:
-cd TesteAuvo.Infra.Data
+### Requisitos:
+.NET 7.0 Runtime
 
-# Aplique as alterações para criar o banco de dados:
-dotnet ef database update --startup-project ../TesteAuvo.Web.Mvc
+  
 
-# Arquitetura do projeto:
+## Para Gerar o Banco de Dados Inicial:
 
-# Direção das Dependências:
-![Direção das Dependências](doc/TesteAuvo-Camadas.png?raw=true "Camadas")
+### Entre no diretório do projeto TesteAuvo.Infra.Data:
+    cd TesteAuvo.Infra.Data
 
-# Relacionamento das Entidades:
-![Relacionamento das Entidades](doc/TesteAuvo-Relacionamentos.png?raw=true "Relacionamento")
+### Aplique as migrations para criar o banco de dados:
+    dotnet ef database update --startup-project ../TesteAuvo.Web.Mvc
+
+  
+
+## Arquitetura do projeto:
+
+  
+
+### Direção das Dependências:
+
+![Direção das Dependências](doc/TesteAuvo-Camadas.png?raw=true  "Camadas")
+
+  
+
+### Relacionamento das Entidades:
+
+![Relacionamento das Entidades](doc/TesteAuvo-Relacionamentos.png?raw=true  "Relacionamento")
